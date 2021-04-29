@@ -8,7 +8,7 @@ import './header.scss';
 const Header = () => {
 
     const [{basket, dispatch}] = useStateValue();
-    console.log('basket in header.js',basket)
+    
 return (
   
 <nav className="header">
