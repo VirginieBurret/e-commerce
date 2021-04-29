@@ -1,0 +1,71 @@
+.header{
+    background-color: #34495E;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 8rem;
+
+   }
+
+       .header__logo {
+        width: 10rem;
+        margin-left: auto;
+        
+      }
+
+    .header__search {
+        display: flex;
+        flex:1;
+       }
+
+    .header__searchInput{
+    height:15px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    }
+
+    
+
+    .header__nav {
+      display: flex;
+      justify-content:space-evenly;
+    }
+
+    .header__option{
+        display:flex;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .header__link{
+        color: white;
+        text-decoration: none;
+    }
+
+  .header__optionLineOne {
+    font-size:12px;
+  }
+
+  .header__optionLineTwo {
+    font-size:13px;
+    font-weight:800;
+  }
+
+.header__optionBasket {
+  display: flex;
+  align-items:center;
+}
+
+.header__productCount {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  font-weight:bold;
+ 
+}
+
+

@@ -1,0 +1,28 @@
+.footer {
+  background-color:#34495E;
+  color: #FCF8EB;
+  width: 100%;
+  min-height:200px,
+}
+
+.footerTop{
+    background-color:#435c77;
+    min-height:2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.footerTop:hover{
+    background-color:#5c7ca0;
+}
+
+.footer__links {
+  width:80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
