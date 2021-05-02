@@ -14,6 +14,11 @@ $beige:#FCF8EB;
     width: 100%;
     padding: 20px;
     justify-content: flex-end;
+    transition: transform 0.3s; /* Animation */
+}
+
+.product:hover{
+  transform: scale(1.05);
 }
 
 .product__title{
@@ -45,5 +50,10 @@ $beige:#FCF8EB;
   height: 2rem;
   border: solid 1px;
   color: white;
+  
+}
+
+.product > button:hover{
+  cursor: pointer;
   
 }

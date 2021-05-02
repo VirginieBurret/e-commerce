@@ -6,14 +6,20 @@ import Header from './Components/Header/';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
 import Checkout from './Components/Checkout';
+import Payment from './Components/Checkout/Payment';
 import {auth} from './Config/firebase';
 import {useStateValue} from './Contextes/stateprovider';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 import './App.css';
+
+// stripe public key inside
+const stripePromise = loadStripe('pk_test_51Imc6qFWDa1pRXQrEzFKdLBrYnsPiA51i2zzs93k64k357pGO77EaSY9OQ43BFmBM5WlZZVVlGoWbxpchatppr6U00EbBkdJtz');
 
 const App = () => {
 const [{},dispatch] = useStateValue()
 
-  //we create a listener 
+  //create a listener 
   useEffect(() => {
    auth.onAuthStateChanged(authUser => {
      console.log('THE USER IS ', authUser);
@@ -40,15 +46,21 @@ const [{},dispatch] = useStateValue()
       <Switch>
         <Route exact path="/">
            <Header/> 
-         
            <Home/>
            <Footer/>
         </Route>
+        <Route path="/login" component={Login} /> 
+
         <Route path="/checkout">
           <Header/>
           <Checkout/> 
         </Route>
-        <Route path="/login" component={Login} /> 
+   
+        <Route path="/payment">
+        <Header/> 
+        <Elements stripe={stripePromise}> <Payment/> </Elements>
+       
+        </Route>
         
         
       </Switch> 

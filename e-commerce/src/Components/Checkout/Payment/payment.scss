@@ -1,0 +1,42 @@
+$main-blue: #34495E;
+$beige:#FCF8EB;
+
+.payment {
+  background-color: white;
+  height: 100vh;
+}
+
+
+
+.paymentContainer > h1 {
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+    border-bottom: 1px solid lightgrey;
+    background-color:#FBFAF6;
+    color: $main-blue;
+}
+
+.link {
+    text-decoration: none;
+    color: #4d6b8c;
+ 
+}
+
+.payment__section{
+display: flex;
+padding: 20px;
+margin:0 20px;
+border-bottom: 1px solid lightgrey;
+overflow-y: scroll;
+max-height: 40vh;
+}
+
+.payment__title{
+    flex:0.2; /* title take 20% */
+}
+
+.payment__adress, .payment__items, .payment__details{
+    flex:0.6; /*adress take 80% */
+}
+

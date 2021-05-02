@@ -62,7 +62,7 @@ return (
 
 
         {/* BASKET ICON */}
-<Link to="/checkout" className='header__link'>
+        {user ?  <Link to="/checkout" className='header__link'>
     <div className="header__optionBasket">
     <IconButton style={{ color:"white"}} aria-label="cart">
       <StyledBadge badgeContent={basket?.length} >
@@ -70,7 +70,8 @@ return (
       </StyledBadge>
     </IconButton>
     </div>
-    </Link>
+    </Link> : ''}
+
 </div>
 
 </nav>

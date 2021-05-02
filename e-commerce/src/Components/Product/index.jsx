@@ -4,7 +4,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 const Product = ({id,title, image, price, rating}) => {
     
      //const [state, dispatch] = useStateValue();
-    const [{basket},dispatch] = useStateValue();
+    const [{basket,user},dispatch] = useStateValue();
     console.log('BASKET',basket)
     const addToBasket = () => {
         //dispatch l'item dans le data layer
@@ -43,7 +43,8 @@ const Product = ({id,title, image, price, rating}) => {
                </div>
             </div>
             <img src={image} alt=""/>
-            <button onClick={addToBasket}>Ajouter au panier</button>
+            {user ? <button onClick={addToBasket}>Ajouter au panier</button> : <button>Connectez-vous pour commencer vos achats</button>}
+            
         </div>
     )
 }
