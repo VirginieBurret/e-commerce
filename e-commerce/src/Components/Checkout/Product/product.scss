@@ -1,0 +1,40 @@
+$main-blue: #34495E;
+$beige:#FCF8EB;
+
+.checkoutProduct{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: solid $main-blue 1px;
+    border-radius: 3px;
+    padding: 1rem;
+}
+
+.checkoutProduct__title{
+font-size: 1.5rem;
+font-weight: 800;
+}
+
+.checkoutProduct__info{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkout__button{
+
+color: $main-blue;
+//margin-top: 10px;
+}
+
+.checkout__button:hover{
+
+    color: red;
+    cursor: pointer;
+    }
+
+
+.checkoutProduct__image{
+    width: 10rem;
+}

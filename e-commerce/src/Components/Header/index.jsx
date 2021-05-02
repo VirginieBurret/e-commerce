@@ -4,10 +4,34 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {Link} from 'react-router-dom';
 import './header.scss';
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import './header.scss';
+import { auth } from '../../Config/firebase';
+
+const StyledBadge = withStyles((theme) => ({
+    badge: {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+  }))(Badge);
+
 
 const Header = () => {
 
-    const [{basket, dispatch}] = useStateValue();
+    const [{user, basket },dispatch] = useStateValue();
+    const username = user?.email.split("@"); 
+    const handleAuthentification = () => {
+      if (user){
+        
+        auth.signOut();
+      }
+    }
+    
     
 return (
   
@@ -21,10 +45,10 @@ return (
     </div>
      
      <div className="header__nav">
-    <Link to='/' className='header__link'>
-    <div className="header__option">
-        <span className="header__optionLineOne">Bonjour Virginie </span>
-        <span className="header__optionLineTwo">Déconnexion</span>
+    <Link to={!user && '/login'} className='header__link'>
+    <div onClick={handleAuthentification} className="header__option"> {/* redirect only if there is no user so when we disconnect we stay on the homepage */}
+        <span className="header__optionLineOne">Bonjour {user ? username[0] : ''} </span>
+        <span className="header__optionLineTwo">{user?'Déconnexion' : 'Connexion'}</span>
     </div>
 </Link>
 
@@ -40,9 +64,11 @@ return (
         {/* BASKET ICON */}
 <Link to="/checkout" className='header__link'>
     <div className="header__optionBasket">
-        <ShoppingBasketIcon />
-        {/* NUMBER OF ITEM IN BASKET */}
-        <span className="header_optionLineTwo header__productCount">{basket?.length}</span>
+    <IconButton style={{ color:"white"}} aria-label="cart">
+      <StyledBadge badgeContent={basket?.length} >
+        <ShoppingCartIcon />
+      </StyledBadge>
+    </IconButton>
     </div>
     </Link>
 </div>

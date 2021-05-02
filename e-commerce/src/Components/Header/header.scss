@@ -1,5 +1,9 @@
+$main-blue: #34495E;
+$beige:#FCF8EB;
+
+
 .header{
-    background-color: #34495E;
+    background-color:$main-blue;
     display: flex;
     align-items: center;
     position: sticky;
@@ -32,6 +36,7 @@
     .header__nav {
       display: flex;
       justify-content:space-evenly;
+      margin: 1rem;
     }
 
     .header__option{

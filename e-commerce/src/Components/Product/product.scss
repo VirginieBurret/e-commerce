@@ -1,3 +1,7 @@
+
+$main-blue: #34495E;
+$beige:#FCF8EB;
+
 .product{
     display: flex;
     flex-direction: column;
@@ -12,8 +16,12 @@
     justify-content: flex-end;
 }
 
+.product__title{
+  font-size: 1.5rem;
+}
 .product__rating {
  display: flex;
+ margin-top: 0.5rem;
 }
 
 .product__info {
@@ -33,7 +41,7 @@
 }
 
 .product > button {
-  background-color:#2E4053;
+  background-color:$main-blue;
   height: 2rem;
   border: solid 1px;
   color: white;

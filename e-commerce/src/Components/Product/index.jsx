@@ -1,11 +1,13 @@
 import './product.scss';
 import {useStateValue} from '../../Contextes/stateprovider';
-const Product = ({id, title, image, price, rating}) => {
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
+const Product = ({id,title, image, price, rating}) => {
+    
+     //const [state, dispatch] = useStateValue();
     const [{basket},dispatch] = useStateValue();
-    console.log('basket content', basket)
+    console.log('BASKET',basket)
     const addToBasket = () => {
-        
+        //dispatch l'item dans le data layer
         dispatch({
         type: 'ADD_TO_BASKET',
         item:{
@@ -15,14 +17,14 @@ const Product = ({id, title, image, price, rating}) => {
             price:price,
             rating:rating
 
-         }
-      })
+         },
+      });
     };
 
     return (
         <div className="product">
             <div className="product__info">
-                <p>{title}</p>
+                <p className="product__title">{title}</p>
                 <p className="product__price">
                     
                     <strong>{price}</strong>
@@ -34,8 +36,8 @@ const Product = ({id, title, image, price, rating}) => {
                    { 
                    Array(rating)
                    .fill()
-                   .map((_) => (
-                     <p>*</p>
+                   .map((_, i) => (
+                    <FavoriteIcon style={{fontSize: "0.5rem"}}/>
                    ))
                 }
                </div>
